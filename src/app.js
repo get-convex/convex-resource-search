@@ -18,6 +18,13 @@ search.addWidgets([
   }),
   instantsearch.widgets.searchBox({
     container: '#searchbox',
+    cssClasses: {
+      form: 'Search',
+      input: 'Search__input',
+      submit: 'Search__submit',
+    },
+    autofocus: true,
+    showReset: false,
   }),
   instantsearch.widgets.hits({
     container: '#hits-docs',

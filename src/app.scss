@@ -1,7 +1,59 @@
 .App {
-  padding: var(--size-2xl);
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-md);
+}
 
-  &__header {
-    background: yellow;
+.Header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-md);
+  padding: var(--size-md) 0;
+
+  &__title {
+    font-family: var(--font-family-display);
+    font-stretch: 151%;
+    font-weight: 400;
+    font-size: var(--size-3xl);
+    color: var(--color-white);
   }
+}
+
+.Search {
+  position: relative;
+
+  &__input {
+    font-size: var(--size-xl);
+    padding: var(--size-xs);
+    width: 100%;
+    background: var(--color-n4);
+    border: none;
+    transition: all 0.25s ease;
+    padding-right: var(--size-6xl);
+
+    &:focus {
+      outline: none;
+      background: var(--color-white);
+    }
+  }
+
+  &__submit {
+    width: var(--size-6xl);
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    svg {
+      width: var(--size-xl);
+      height: var(--size-xl);
+    }
+  }
+}
+
+// TODO: Temporary to prevent horizontal scrolling.
+.columns {
+  overflow: hidden;
 }
