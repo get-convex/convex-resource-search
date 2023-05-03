@@ -33,8 +33,14 @@ search.addWidgets([
       item: 'ResultCard',
     },
     templates: {
-      item:
-        '<strong class="ResultCard__title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "contents" }{{/helpers.snippet}}',
+      item(hit, { html, components }) {
+        return html`
+          <strong class="ResultCard__title">
+            ${components.Highlight({ hit, attribute: 'title' })}
+          </strong>
+          <p>${components.Snippet({ hit, attribute: 'contents' })}</p>
+        `;
+      },
     },
   }),
   instantsearch.widgets.index({ indexName: 'stack' }).addWidgets([
@@ -48,8 +54,14 @@ search.addWidgets([
         item: 'ResultCard',
       },
       templates: {
-        item:
-          '<strong class="item-title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "content" }{{/helpers.snippet}}',
+        item(hit, { html, components }) {
+          return html`
+            <strong class="ResultCard__title">
+              ${components.Highlight({ hit, attribute: 'title' })}
+            </strong>
+            <p>${components.Snippet({ hit, attribute: 'content' })}</p>
+          `;
+        },
       },
     }),
   ]),
