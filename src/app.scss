@@ -58,10 +58,16 @@
   display: flex;
   flex-direction: column;
   gap: var(--size-4xl);
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: var(--size-xl);
+  }
 }
 
 .Results {
   overflow: hidden; // Prevents horizontal scrolling.
+  color: var(--color-white);
 
   &__heading {
     color: var(--color-white);
@@ -75,6 +81,10 @@
     flex-direction: column;
     gap: var(--size-md);
   }
+
+  @media (min-width: 1024px) {
+    flex-grow: 1;
+  }
 }
 
 .ResultCard {
@@ -83,6 +93,8 @@
   padding: var(--size-md);
   border-radius: var(--size-3xs);
   font-size: var(--size-sm);
+  max-width: 40rem;
+  overflow: hidden;
 
   &__title {
     display: block;
