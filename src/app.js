@@ -29,13 +29,12 @@ search.addWidgets([
   instantsearch.widgets.hits({
     container: '#hits-docs',
     cssClasses: {
-      root: 'result-stack',
-      list: 'result-list',
-      item: 'result-item',
+      list: 'Results__list',
+      item: 'ResultCard',
     },
     templates: {
       item:
-        '<strong class="item-title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "contents" }{{/helpers.snippet}}',
+        '<strong class="ResultCard__title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "contents" }{{/helpers.snippet}}',
     },
   }),
   instantsearch.widgets.index({ indexName: 'stack' }).addWidgets([
@@ -45,9 +44,8 @@ search.addWidgets([
     instantsearch.widgets.hits({
       container: '#hits-stack',
       cssClasses: {
-        root: 'result-stack',
-        list: 'result-list',
-        item: 'result-item',
+        list: 'Results__list',
+        item: 'ResultCard',
       },
       templates: {
         item:
@@ -62,9 +60,8 @@ search.addWidgets([
     instantsearch.widgets.hits({
       container: '#hits-discord',
       cssClasses: {
-        root: 'result-stack',
-        list: 'result-list',
-        item: 'result-item',
+        list: 'Results__list',
+        item: 'ResultCard',
       },
       templates: {
         item(hit, { html, components }) {

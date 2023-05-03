@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   padding: var(--size-md);
+  gap: var(--size-3xl);
+  padding-top: var(--size-3xl);
 }
 
 .Header {
   display: flex;
   flex-direction: column;
   gap: var(--size-md);
-  padding: var(--size-md) 0;
 
   &__title {
     font-family: var(--font-family-display);
@@ -53,7 +54,39 @@
   }
 }
 
-// TODO: Temporary to prevent horizontal scrolling.
-.columns {
-  overflow: hidden;
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4xl);
+}
+
+.Results {
+  overflow: hidden; // Prevents horizontal scrolling.
+
+  &__heading {
+    color: var(--color-white);
+    font-family: var(--font-family-display);
+    font-stretch: 151%;
+    padding-bottom: var(--size-md);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-md);
+  }
+}
+
+.ResultCard {
+  background: var(--color-n11);
+  color: var(--color-white);
+  padding: var(--size-md);
+  border-radius: var(--size-3xs);
+  font-size: var(--size-sm);
+
+  &__title {
+    display: block;
+    font-size: var(--size-lg);
+    margin-bottom: var(--size-sm);
+  }
 }
