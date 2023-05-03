@@ -90,3 +90,38 @@
     margin-bottom: var(--size-sm);
   }
 }
+
+.DiscordMessage {
+  margin-bottom: var(--size-md);
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2xs);
+    position: relative;
+    font-size: var(--size-md);
+    color: var(--color-n2);
+
+    &__avatar {
+      width: var(--size-2xl);
+      height: var(--size-2xl);
+      border-radius: 50%;
+    }
+
+    &__convex {
+      width: var(--size-xl);
+      height: var(--size-xl);
+      border-radius: 50%;
+      position: absolute;
+      left: var(--size-xl);
+      background: var(--color-n12);
+      border: 2px solid var(--color-n12);
+      bottom: 0;
+    }
+  }
+
+  &__text {
+    color: var(--color-n4);
+    margin-left: var(--size-6xl);
+  }
+}
