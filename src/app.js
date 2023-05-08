@@ -18,17 +18,29 @@ search.addWidgets([
   }),
   instantsearch.widgets.searchBox({
     container: '#searchbox',
+    cssClasses: {
+      form: 'Search',
+      input: 'Search__input',
+      submit: 'Search__submit',
+    },
+    autofocus: true,
+    showReset: false,
   }),
   instantsearch.widgets.hits({
     container: '#hits-docs',
     cssClasses: {
-      root: 'result-stack',
-      list: 'result-list',
-      item: 'result-item',
+      list: 'Results__list',
+      item: 'ResultCard',
     },
     templates: {
-      item:
-        '<strong class="item-title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "contents" }{{/helpers.snippet}}',
+      item(hit, { html, components }) {
+        return html`
+          <strong class="ResultCard__title">
+            ${components.Highlight({ hit, attribute: 'title' })}
+          </strong>
+          <p>${components.Snippet({ hit, attribute: 'contents' })}</p>
+        `;
+      },
     },
   }),
   instantsearch.widgets.index({ indexName: 'stack' }).addWidgets([
@@ -38,13 +50,18 @@ search.addWidgets([
     instantsearch.widgets.hits({
       container: '#hits-stack',
       cssClasses: {
-        root: 'result-stack',
-        list: 'result-list',
-        item: 'result-item',
+        list: 'Results__list',
+        item: 'ResultCard',
       },
       templates: {
-        item:
-          '<strong class="item-title">{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.snippet}}{ "attribute": "content" }{{/helpers.snippet}}',
+        item(hit, { html, components }) {
+          return html`
+            <strong class="ResultCard__title">
+              ${components.Highlight({ hit, attribute: 'title' })}
+            </strong>
+            <p>${components.Snippet({ hit, attribute: 'content' })}</p>
+          `;
+        },
       },
     }),
   ]),
@@ -55,39 +72,38 @@ search.addWidgets([
     instantsearch.widgets.hits({
       container: '#hits-discord',
       cssClasses: {
-        root: 'result-stack',
-        list: 'result-list',
-        item: 'result-item',
+        list: 'Results__list',
+        item: 'ResultCard',
       },
       templates: {
         item(hit, { html, components }) {
-          console.log(hit);
           return html`
-            <strong class="item-title">
+            <strong class="ResultCard__title">
               ${components.Highlight({ hit, attribute: 'title' })}</strong
-            ><br />
+            >
             ${hit.messages.map(
               m =>
                 html`
-                  <p>
-                    <img src="${m.author.avatar}" class="avatar" />
-                    <strong class="author-block">
-                      ${m.author.name}
+                  <div class="DiscordMessage">
+                    <div class="DiscordMessage__author">
+                      <img
+                        src="${m.author.avatar}"
+                        class="DiscordMessage__author__avatar"
+                      />
                       ${m.author.convexer &&
                         html`
                           <img
                             src="https://static.convex.dev/logo/convex-logomark-1024.png"
-                            class="convex-logo"
+                            class="DiscordMessage__author__convex"
                           />
                         `}
-                      :
-                    </strong>
-                    ${m.body}
-                  </p>
+                      ${m.author.name}
+                    </div>
+                    <p class="DiscordMessage__text">${m.body}</p>
+                  </div>
                 `
             )}
           `;
-          // {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</strong><br> {{#helpers.highlight}}{ "attribute": "messages" }{{/helpers.highlight}}',
         },
       },
     }),

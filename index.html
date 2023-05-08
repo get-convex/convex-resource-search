@@ -7,34 +7,33 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
-
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="shortcut icon" href="./favicon.png" />
-
     <link rel="stylesheet" href="./src/index.css" />
-    <link rel="stylesheet" href="./src/app.css" />
-
-    <title>multi-index-hits</title>
+    <link rel="stylesheet" href="./src/app.scss" />
+    <title>Convex Developer Search</title>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Convex Developer Search</h1>
-      <div id="searchbox"></div>
-      <div class="columns">
-        <div class="column">
-          <h2>Docs</h2>
+    <div class="App">
+      <header class="Header">
+        <h1 class="Header__title">Convex Developer Search</h1>
+        <div id="searchbox"></div>
+      </header>
+      <main class="Content">
+        <div class="Results">
+          <h2 class="Results__heading">Docs</h2>
           <div id="hits-docs"></div>
         </div>
-        <div class="column">
-          <h2>Stack</h2>
+        <div class="Results">
+          <h2 class="Results__heading">Stack</h2>
           <div id="hits-stack"></div>
         </div>
-        <div class="column">
-          <h2>Discord</h2>
+        <div class="Results">
+          <h2 class="Results__heading">Discord</h2>
           <div id="hits-discord"></div>
         </div>
-      </div>
+      </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
