@@ -1,17 +1,14 @@
 export type BaseHit = {
   title: string;
+  objectID: string;
   __position: number;
 };
 
 export type DocsHit = BaseHit & {
-  // The URL of the docs page.
-  objectID: string;
   contents: string;
 };
 
 export type StackHit = BaseHit & {
-  // The slug of the Stack page (e.g. /my-page).
-  objectID: string;
   summary: string;
   content: string;
   tags: string[];

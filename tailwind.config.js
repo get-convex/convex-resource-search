@@ -57,6 +57,7 @@ module.exports = {
         a4: '#ee9f73',
       },
       transparent: 'transparent',
+      discord: '#5865f2',
     },
     fontFamily: {
       display:

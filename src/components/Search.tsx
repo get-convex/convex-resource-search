@@ -44,7 +44,8 @@ export default function Search() {
           >
             <a
               href={link}
-              className="sticky top-32 mt-4 bg-neutral-n12 py-4 font-display text-2xl leading-none text-neutral-n2 underline-offset-4 shadow-lg stretch-max hover:underline md:top-2 xl:static xl:mt-0"
+              className="sticky top-32 mt-4 bg-neutral-n12 py-4 font-display text-2xl leading-none text-neutral-n2 underline-offset-4 shadow-lg stretch-max hover:underline md:top-2 xl:static xl:mt-0 xl:text-xl xl:font-bold"
+              target="_blank"
             >
               {title}
             </a>
