@@ -40,7 +40,7 @@ export default function Search() {
         {indexes.map(({ name, title, link }) => (
           <div
             key={name}
-            className="flex grow basis-0 flex-col md:max-w-2xl xl:overflow-hidden"
+            className="flex grow basis-0 flex-col md:max-w-lg xl:overflow-hidden"
           >
             <a
               href={link}
