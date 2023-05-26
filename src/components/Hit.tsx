@@ -7,7 +7,7 @@ type HitProps = {
 
 export default function Hit({ hit }: HitProps) {
   return (
-    <div className="rounded-lg shadow bg-neutral-n2 p-3 overflow-hidden">
+    <div className="overflow-hidden rounded-lg bg-neutral-n2 p-3 shadow">
       <div className="text-md font-bold">{hit.title}</div>
       {isDocsHit(hit) && (
         <div>

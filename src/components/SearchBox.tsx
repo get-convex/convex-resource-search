@@ -15,7 +15,7 @@ export default function SearchBox() {
     <input
       type="text"
       placeholder="Search across Docs, Stack, and Discord..."
-      className="rounded p-2 outline-none grow lg:text-lg"
+      className="rounded p-2 outline-none md:grow md:text-lg"
       value={query}
       onChange={handleChange}
     />
