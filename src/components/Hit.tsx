@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { Snippet } from 'react-instantsearch-hooks-web';
 import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
-import Image from 'next/image';
 
 type HitProps = {
   hit: SearchHit;
@@ -65,12 +65,33 @@ export default function Hit({ hit }: HitProps) {
             />
             {hit.title}
           </a>
-          <ol>
-            {hit.messages.map((message, index) => (
-              <li key={index} className="text-neutral-n5">
-                <strong>{message.author.name}</strong>
-                <br />
-                {message.body}
+          <ol className="pt-2">
+            {hit.messages.slice(0, 3).map((message, index) => (
+              <li
+                key={index}
+                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-4"
+              >
+                <Image
+                  src={message.author.avatar}
+                  alt={`Profile image for ${message.author.name}`}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
+                <div className="flex flex-col">
+                  <strong className="flex gap-2 text-neutral-white">
+                    <span>{message.author.name}</span>
+                    {message.author.convexer && (
+                      <Image
+                        src="/icon-convex.svg"
+                        alt="Convex team member"
+                        width={20}
+                        height={20}
+                      />
+                    )}
+                  </strong>
+                  <p className="text-neutral-n5">{message.body}</p>
+                </div>
               </li>
             ))}
           </ol>
