@@ -36,7 +36,7 @@ export default function Search() {
         <Image src="/logo.svg" alt="Convex logo" width={320} height={36} />
         <SearchBox />
       </header>
-      <main className="flex flex-col gap-12 p-4 xl:flex-row">
+      <main className="flex flex-col gap-12 p-4 xl:flex-row xl:gap-6">
         {indexes.map(({ name, title, link }) => (
           <div
             key={name}

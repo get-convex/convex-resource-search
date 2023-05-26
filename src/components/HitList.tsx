@@ -12,6 +12,7 @@ export default function HitList() {
           <Hit hit={hit} />
         </li>
       ))}
+      {hits.length === 0 && <p className="text-red-r2">No results found.</p>}
     </ul>
   );
 }
