@@ -9,25 +9,41 @@ const searchClient = algoliasearch(
   'd5802c3142d1d81cebdac1ccbb02ea9f'
 );
 
+const indexes = [
+  {
+    name: 'docs',
+    title: 'Docs',
+  },
+  {
+    name: 'stack',
+    title: 'Stack',
+  },
+  {
+    name: 'discord',
+    title: 'Discord',
+  },
+];
+
 export default function Search() {
   return (
-    <div className="p-4 bg-slate-500">
-      <h1 className="text-5xl">Convex Search</h1>
-      <InstantSearch searchClient={searchClient}>
-        <SearchBox className="my-4" />
-        <h1 className="text-4xl mb-2">Docs</h1>
-        <Index indexName="docs">
-          <HitList />
-        </Index>
-        <h1 className="text-4xl mb-2">Stack</h1>
-        <Index indexName="stack">
-          <HitList />
-        </Index>
-        <h1 className="text-4xl mb-2">Discord</h1>
-        <Index indexName="discord">
-          <HitList />
-        </Index>
-      </InstantSearch>
-    </div>
+    <InstantSearch searchClient={searchClient}>
+      <div className="p-4">
+        <header>
+          <h1 className="text-5xl text-neutral-n2 stretch-max font-display">
+            Convex Search
+          </h1>
+          <SearchBox className="my-4" />
+        </header>
+
+        {indexes.map(({ name, title }) => (
+          <>
+            <h1 className="mb-2 text-4xl text-neutral-n2">{title}</h1>
+            <Index indexName={name}>
+              <HitList />
+            </Index>
+          </>
+        ))}
+      </div>
+    </InstantSearch>
   );
 }

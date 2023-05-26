@@ -1,14 +1,13 @@
-import { Snippet } from "react-instantsearch-hooks-web";
-import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from "./types";
+import { Snippet } from 'react-instantsearch-hooks-web';
+import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
 
 type HitProps = {
   hit: SearchHit;
 };
 
 export default function Hit({ hit }: HitProps) {
-  console.log("Hit", { hit });
   return (
-    <div className="rounded-lg shadow bg-white p-3 overflow-hidden">
+    <div className="rounded-lg shadow bg-neutral-n2 p-3 overflow-hidden">
       <div className="text-md font-bold">{hit.title}</div>
       {isDocsHit(hit) && (
         <div>
