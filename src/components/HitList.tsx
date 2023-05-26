@@ -6,7 +6,7 @@ export default function HitList() {
   const { hits } = useHits<SearchHit>();
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-4">
       {hits.map((hit) => (
         <li key={hit.objectID}>
           <Hit hit={hit} />
