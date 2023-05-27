@@ -914,9 +914,7 @@ algoliasearch-helper@^3.11.3:
     "@algolia/events" "^4.0.1"
 
 algoliasearch@^4.17.0:
-  version "4.17.0"
-  resolved "https://registry.npmjs.org/algoliasearch/-/algoliasearch-4.17.0.tgz"
-  integrity sha512-JMRh2Mw6sEnVMiz6+APsi7lx9a2jiDFF+WUtANaUVCv6uSU9UOLdo5h9K3pdP6frRRybaM2fX8b1u0nqICS9aA==
+  version "4.17.1"
   dependencies:
     "@algolia/cache-browser-local-storage" "4.17.0"
     "@algolia/cache-common" "4.17.0"
