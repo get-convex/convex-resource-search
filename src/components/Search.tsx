@@ -55,7 +55,7 @@ export default function Search() {
           </div>
         ))}
       </main>
-      <footer className="flex flex-col-reverse justify-between gap-4 border-t border-neutral-n10 p-6 sm:flex-row">
+      <footer className="mt-6 flex flex-col-reverse justify-between gap-4 border-t border-neutral-n10 p-6 sm:flex-row">
         <span className="text-neutral-n4">Copyright © 2023 Convex, Inc.</span>
         <div className="flex gap-4">
           <a
