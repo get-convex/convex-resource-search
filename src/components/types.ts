@@ -16,6 +16,7 @@ export type StackHit = BaseHit & {
 
 export type DiscordHit = BaseHit & {
   channel: string;
+  url: string;
   date: number;
   messages: {
     author: {
