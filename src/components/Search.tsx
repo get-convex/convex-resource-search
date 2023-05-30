@@ -55,6 +55,47 @@ export default function Search() {
           </div>
         ))}
       </main>
+      <footer className="flex flex-col-reverse justify-between gap-4 border-t border-neutral-n10 p-6 sm:flex-row">
+        <span className="text-neutral-n4">Copyright © 2023 Convex, Inc.</span>
+        <div className="flex gap-4">
+          <a
+            href="https://github.com/get-convex"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/icon-github-white.svg"
+              alt="GitHub logo"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://convex.dev/community"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/icon-discord-white.svg"
+              alt="Discord logo"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://twitter.com/convex_dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/icon-twitter-white.svg"
+              alt="Twitter logo"
+              width={24}
+              height={24}
+            />
+          </a>
+        </div>
+      </footer>
     </InstantSearch>
   );
 }
