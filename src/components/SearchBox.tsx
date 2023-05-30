@@ -1,6 +1,8 @@
-import { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { useEffect, useState } from 'react';
 import { useSearchBox } from 'react-instantsearch-hooks-web';
+
+const queryParam = 'q';
 
 export default function SearchBox() {
   const { refine } = useSearchBox();
@@ -10,12 +12,38 @@ export default function SearchBox() {
     const value = event.target.value;
     setQuery(value);
     refine(value);
+    updateQueryParam(value);
   };
 
   const handleClear = () => {
     setQuery('');
     refine('');
+    updateQueryParam('');
   };
+
+  const updateQueryParam = (value: string) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (value) {
+      urlParams.set(queryParam, value);
+    } else {
+      urlParams.delete(queryParam);
+    }
+
+    // Construct the updated URL.
+    const baseUrl = `${window.location.origin}${window.location.pathname}`;
+    const newUrl = urlParams.toString()
+      ? `${baseUrl}?${urlParams.toString()}`
+      : baseUrl;
+
+    // Update the URL without reloading.
+    window.history.pushState({}, '', newUrl);
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get(queryParam);
+    setQuery(searchParam || '');
+  }, []);
 
   return (
     <div className="relative md:grow">
