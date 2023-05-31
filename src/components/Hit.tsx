@@ -7,10 +7,6 @@ type HitProps = {
 };
 
 export default function Hit({ hit }: HitProps) {
-  if (isDiscordHit(hit)) {
-    console.log({ hit });
-  }
-
   return (
     <div className="overflow-hidden rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow">
       {isDocsHit(hit) && (
@@ -52,8 +48,7 @@ export default function Hit({ hit }: HitProps) {
       {isDiscordHit(hit) && (
         <div className="flex flex-col">
           <a
-            // TODO: Link directly to Discord thread?
-            href="https://discord.com/invite/nk6C2qTeCq"
+            href={hit.url}
             className="mb-2 flex items-start gap-2 text-lg font-semibold leading-tight text-discord underline-offset-2 hover:underline"
             target="_blank"
           >
