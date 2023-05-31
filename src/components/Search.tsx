@@ -1,15 +1,12 @@
 'use client';
 
-import algoliasearch from 'algoliasearch/lite';
-import { Index, InstantSearch } from 'react-instantsearch-hooks-web';
-import HitList from './HitList';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Index, useSearchBox } from 'react-instantsearch-hooks-web';
+import HitList from './HitList';
 import SearchBox from './SearchBox';
 
-const searchClient = algoliasearch(
-  '1KIE511890',
-  'd5802c3142d1d81cebdac1ccbb02ea9f'
-);
+const queryParam = 'q';
 
 const indexes = [
   {
@@ -30,11 +27,55 @@ const indexes = [
 ];
 
 export default function Search() {
+  const { refine } = useSearchBox();
+  const [query, setQuery] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setQuery(value);
+    refine(value);
+    updateQueryParam(value);
+  };
+
+  const handleClear = () => {
+    setQuery('');
+    refine('');
+    updateQueryParam('');
+  };
+
+  const updateQueryParam = (value: string) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (value) {
+      urlParams.set(queryParam, value);
+    } else {
+      urlParams.delete(queryParam);
+    }
+
+    // Construct the updated URL.
+    const baseUrl = `${window.location.origin}${window.location.pathname}`;
+    const newUrl = urlParams.toString()
+      ? `${baseUrl}?${urlParams.toString()}`
+      : baseUrl;
+
+    // Update the URL without reloading.
+    window.history.pushState({}, '', newUrl);
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get(queryParam);
+    setQuery(searchParam || '');
+  }, []);
+
   return (
-    <InstantSearch searchClient={searchClient}>
+    <>
       <header className="sticky top-0 z-10 flex h-32 flex-col justify-center gap-4 border-b border-neutral-n10 bg-neutral-n12 px-4 md:h-20 md:flex-row md:items-center md:gap-12">
         <Image src="/logo.svg" alt="Convex logo" width={320} height={36} />
-        <SearchBox />
+        <SearchBox
+          value={query}
+          onChange={handleChange}
+          onClear={handleClear}
+        />
       </header>
       <main className="flex flex-col gap-12 p-4 xl:flex-row xl:gap-6">
         {indexes.map(({ name, title, link }) => (
@@ -96,6 +137,6 @@ export default function Search() {
           </a>
         </div>
       </footer>
-    </InstantSearch>
+    </>
   );
 }
