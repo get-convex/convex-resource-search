@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Snippet } from 'react-instantsearch-hooks-web';
+import { Highlight } from 'react-instantsearch-hooks-web';
 import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
 
 type HitProps = {
@@ -24,7 +24,11 @@ export default function Hit({ hit }: HitProps) {
             />
             {hit.title}
           </a>
-          <Snippet hit={hit} attribute="contents" className="text-neutral-n5" />
+          <Highlight
+            hit={hit}
+            attribute="contents"
+            className="text-neutral-n5 line-clamp-2"
+          />
         </div>
       )}
       {isStackHit(hit) && (
@@ -42,7 +46,11 @@ export default function Hit({ hit }: HitProps) {
             />
             {hit.title}
           </a>
-          <Snippet hit={hit} attribute="content" className="text-neutral-n5" />
+          <Highlight
+            hit={hit}
+            attribute="content"
+            className="text-neutral-n5 line-clamp-2"
+          />
         </div>
       )}
       {isDiscordHit(hit) && (
