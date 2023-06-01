@@ -1,45 +1,18 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { useEffect, useRef, useState } from 'react';
-import { useSearchBox } from 'react-instantsearch-hooks-web';
+import { useEffect, useRef } from 'react';
 
-const queryParam = 'q';
+interface SearchBoxProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onClear: () => void;
+}
 
-export default function SearchBox() {
-  const { refine } = useSearchBox();
-  const [query, setQuery] = useState('');
+export default function SearchBox({
+  value,
+  onChange,
+  onClear,
+}: SearchBoxProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setQuery(value);
-    refine(value);
-    updateQueryParam(value);
-  };
-
-  const handleClear = () => {
-    setQuery('');
-    refine('');
-    updateQueryParam('');
-    focusInput();
-  };
-
-  const updateQueryParam = (value: string) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (value) {
-      urlParams.set(queryParam, value);
-    } else {
-      urlParams.delete(queryParam);
-    }
-
-    // Construct the updated URL.
-    const baseUrl = `${window.location.origin}${window.location.pathname}`;
-    const newUrl = urlParams.toString()
-      ? `${baseUrl}?${urlParams.toString()}`
-      : baseUrl;
-
-    // Update the URL without reloading.
-    window.history.pushState({}, '', newUrl);
-  };
 
   const focusInput = () => {
     if (inputRef.current) {
@@ -47,10 +20,12 @@ export default function SearchBox() {
     }
   };
 
+  const handleClear = () => {
+    onClear();
+    focusInput();
+  };
+
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchParam = urlParams.get(queryParam);
-    setQuery(searchParam || '');
     focusInput();
   }, []);
 
@@ -60,11 +35,11 @@ export default function SearchBox() {
         type="text"
         placeholder="Search across Docs, Stack, and Discord..."
         className="w-full rounded p-2 outline-none md:text-lg"
-        value={query}
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
         ref={inputRef}
       />
-      {query !== '' && (
+      {value !== '' && (
         <button
           className="absolute bottom-0 right-1 top-0 flex items-center text-neutral-n8 hover:text-neutral-black"
           onClick={handleClear}
