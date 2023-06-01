@@ -79,9 +79,9 @@ export default function Search() {
         />
       </header>
       {query === '' ? (
-        <div className="flex grow items-center justify-center gap-2 text-xl text-neutral-n4">
-          <InformationCircleIcon className="w-8 text-green-g4" />
-          <span>
+        <div className="flex grow items-center justify-center gap-2 p-4">
+          <InformationCircleIcon className="w-8 shrink-0 text-green-g4" />
+          <span className="text-neutral-n4 md:text-xl">
             Use the input above to search across Docs, Stack, and Discord.
           </span>
         </div>
