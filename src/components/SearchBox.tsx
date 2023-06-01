@@ -1,5 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchBox } from 'react-instantsearch-hooks-web';
 
 const queryParam = 'q';
@@ -7,6 +7,7 @@ const queryParam = 'q';
 export default function SearchBox() {
   const { refine } = useSearchBox();
   const [query, setQuery] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -19,6 +20,7 @@ export default function SearchBox() {
     setQuery('');
     refine('');
     updateQueryParam('');
+    focusInput();
   };
 
   const updateQueryParam = (value: string) => {
@@ -39,10 +41,17 @@ export default function SearchBox() {
     window.history.pushState({}, '', newUrl);
   };
 
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get(queryParam);
     setQuery(searchParam || '');
+    focusInput();
   }, []);
 
   return (
@@ -53,6 +62,7 @@ export default function SearchBox() {
         className="w-full rounded p-2 outline-none md:text-lg"
         value={query}
         onChange={handleChange}
+        ref={inputRef}
       />
       {query !== '' && (
         <button
