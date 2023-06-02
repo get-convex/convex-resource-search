@@ -31,7 +31,7 @@ export default function Results() {
           <button
             key={name}
             className={classnames(
-              'border-b-2 px-3 py-2 text-xl text-neutral-n5 transition-colors hover:text-neutral-white',
+              'border-b-2 px-3 pb-2 text-xl text-neutral-n5 transition-colors hover:text-neutral-white',
               {
                 'border-transparent': name !== selectedIndexName,
                 'border-neutral-n5 text-neutral-white':

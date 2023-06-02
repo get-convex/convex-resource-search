@@ -51,7 +51,7 @@ export default function Search() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col gap-6">
+    <div className="flex min-h-screen flex-col gap-4">
       <header className="sticky top-0 z-10 flex h-32 flex-col justify-center gap-4 border-b border-neutral-n10 bg-neutral-n12 px-4 md:h-20 md:flex-row md:items-center md:gap-12">
         <Image src="/logo.svg" alt="Convex logo" width={320} height={36} />
         <SearchBox
