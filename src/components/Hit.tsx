@@ -73,7 +73,7 @@ export default function Hit({ hit }: HitProps) {
             {hit.messages.slice(0, 3).map((message, index) => (
               <li
                 key={index}
-                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-4"
+                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-2"
               >
                 <Image
                   src={message.author.avatar}

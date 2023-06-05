@@ -8,13 +8,9 @@ export default function Markdown({ text }: MarkdownProps) {
   return (
     <ReactMarkdown
       components={{
-        p: ({ children }) => (
-          <p className="text-neutral-n5 [&:not(:last-of-type)]:mb-2">
-            {children}
-          </p>
-        ),
+        p: ({ children }) => <p className="mb-2 text-neutral-n5">{children}</p>,
         pre: ({ children }) => (
-          <div className="w-full overflow-x-auto rounded bg-neutral-n12 p-2">
+          <div className="mb-4 max-h-72 w-full overflow-x-auto rounded bg-neutral-n12 p-2">
             <pre className="text-neutral-n5">{children}</pre>
           </div>
         ),
