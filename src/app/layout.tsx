@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Convex Developer Search',
-  description: 'Search docs, stack, discord all at once',
+  description: 'Search Docs, Stack, Discord all at once',
 };
 
 export default function RootLayout({
