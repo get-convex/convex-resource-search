@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Highlight } from 'react-instantsearch-hooks-web';
+import Markdown from './Markdown';
 import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
 
 type HitProps = {
@@ -8,7 +9,7 @@ type HitProps = {
 
 export default function Hit({ hit }: HitProps) {
   return (
-    <div className="overflow-hidden rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow">
+    <div className="rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow">
       {isDocsHit(hit) && (
         <div className="flex flex-col">
           <a
@@ -72,7 +73,7 @@ export default function Hit({ hit }: HitProps) {
             {hit.messages.slice(0, 3).map((message, index) => (
               <li
                 key={index}
-                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-4"
+                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-2"
               >
                 <Image
                   src={message.author.avatar}
@@ -81,7 +82,7 @@ export default function Hit({ hit }: HitProps) {
                   height={48}
                   className="rounded-full"
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col overflow-hidden">
                   <strong className="flex gap-2 text-neutral-white">
                     <span>{message.author.name}</span>
                     {message.author.convexer && (
@@ -93,7 +94,7 @@ export default function Hit({ hit }: HitProps) {
                       />
                     )}
                   </strong>
-                  <p className="text-neutral-n5">{message.body}</p>
+                  <Markdown text={message.body} />
                 </div>
               </li>
             ))}
