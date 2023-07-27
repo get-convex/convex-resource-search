@@ -47,8 +47,11 @@ export default function Search() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get(queryParam);
-    setQuery(searchParam || '');
-  }, []);
+    if (searchParam) {
+      setQuery(searchParam);
+      refine(searchParam);
+    }
+  }, [refine]);
 
   return (
     <div className="flex min-h-screen flex-col gap-4">
