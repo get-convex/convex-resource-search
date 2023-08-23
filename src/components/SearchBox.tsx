@@ -1,4 +1,4 @@
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { Cross2Icon } from '@radix-ui/react-icons';
 import { useEffect, useRef } from 'react';
 
 interface SearchBoxProps {
@@ -44,7 +44,7 @@ export default function SearchBox({
           className="absolute bottom-0 right-1 top-0 flex items-center text-neutral-n8 hover:text-neutral-black"
           onClick={handleClear}
         >
-          <XMarkIcon className="w-8" />
+          <Cross2Icon className="w-6 h-6" />
         </button>
       )}
     </div>
