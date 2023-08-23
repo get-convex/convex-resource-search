@@ -1,6 +1,6 @@
 'use client';
 
-import { InformationCircleIcon } from '@heroicons/react/24/outline';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useSearchBox } from 'react-instantsearch-hooks-web';
@@ -66,7 +66,7 @@ export default function Search() {
       <main className="flex grow px-4">
         {query === '' ? (
           <div className="flex w-full items-center justify-center gap-2">
-            <InformationCircleIcon className="w-8 shrink-0 text-green-g4" />
+            <InfoCircledIcon className="w-8 h-8 shrink-0 text-green-g4" />
             <span className="text-neutral-n4 md:text-xl">
               Use the input above to search across Docs, Stack, and Discord.
             </span>
