@@ -1,4 +1,4 @@
-import { Index } from 'react-instantsearch-hooks-web';
+import { Index } from 'react-instantsearch';
 import HitList from './HitList';
 import { useState } from 'react';
 import classnames from 'classnames';

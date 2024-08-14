@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Highlight } from 'react-instantsearch-hooks-web';
+import { Highlight } from 'react-instantsearch';
 import Markdown from './Markdown';
 import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
 
