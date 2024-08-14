@@ -1,8 +1,8 @@
 'use client';
 
 import Search from '@/components/Search';
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch } from 'react-instantsearch-hooks-web';
+import { algoliasearch } from 'algoliasearch';
+import { InstantSearch } from 'react-instantsearch';
 
 const searchClient = algoliasearch(
   '1KIE511890',

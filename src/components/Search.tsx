@@ -3,7 +3,7 @@
 import { InfoCircledIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useSearchBox } from 'react-instantsearch-hooks-web';
+import { useSearchBox } from 'react-instantsearch';
 import Results from './Results';
 import SearchBox from './SearchBox';
 

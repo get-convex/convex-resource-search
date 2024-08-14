@@ -1,4 +1,4 @@
-import { useHits } from 'react-instantsearch-hooks-web';
+import { useHits } from 'react-instantsearch';
 import Hit from './Hit';
 import { SearchHit } from './types';
 
