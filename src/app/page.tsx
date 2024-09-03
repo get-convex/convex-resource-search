@@ -1,10 +1,10 @@
 'use client';
 
 import Search from '@/components/Search';
-import { algoliasearch } from 'algoliasearch';
+import { liteClient } from 'algoliasearch/lite';
 import { InstantSearch } from 'react-instantsearch';
 
-const searchClient = algoliasearch(
+const searchClient = liteClient(
   '1KIE511890',
   'd5802c3142d1d81cebdac1ccbb02ea9f'
 );
