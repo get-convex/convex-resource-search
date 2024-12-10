@@ -76,7 +76,9 @@ export default function Search() {
         )}
       </main>
       <footer className="flex flex-col-reverse justify-between gap-4 border-t border-neutral-n10 px-4 py-6 sm:flex-row">
-        <span className="text-neutral-n4">Copyright © 2023 Convex, Inc.</span>
+        <span className="text-neutral-n4">
+          Copyright © {new Date().getFullYear()} Convex, Inc.
+        </span>
         <div className="flex gap-4">
           <a
             href="https://github.com/get-convex"
