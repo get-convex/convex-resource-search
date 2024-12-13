@@ -17,7 +17,7 @@
     "algoliasearch": "^5.0.0",
     "autoprefixer": "10.4.20",
     "classnames": "^2.3.2",
-    "eslint": "9.16.0",
+    "eslint": "9.17.0",
     "eslint-config-next": "15.1.0",
     "next": "15.1.0",
     "postcss": "8.4.49",
