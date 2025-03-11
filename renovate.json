@@ -1,6 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "minor and patch dependencies",
+      "schedule": ["* * * * 1"],
+      "stabilityDays": 3
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "schedule": ["* * * * 1"],
+      "stabilityDays": 7
+    }
+  ],
+  "ignorePaths": ["cms/**"]
 }
