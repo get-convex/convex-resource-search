@@ -11,22 +11,22 @@
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@types/node": "22.16.4",
+    "@types/node": "22.17.0",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",
     "algoliasearch": "^5.0.0",
     "autoprefixer": "10.4.21",
     "classnames": "^2.3.2",
     "eslint": "^9.0.0",
-    "eslint-config-next": "15.4.1",
-    "next": "15.4.1",
+    "eslint-config-next": "15.4.5",
+    "next": "15.4.5",
     "postcss": "8.5.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-instantsearch": "^7.13.0",
     "react-markdown": "^10.0.0",
     "tailwindcss": "3.4.17",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
