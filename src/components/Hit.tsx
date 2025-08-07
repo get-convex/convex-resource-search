@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Highlight } from 'react-instantsearch';
+import ImageWithFallback from './ImageWithFallback';
 import Markdown from './Markdown';
 import { SearchHit, isDiscordHit, isDocsHit, isStackHit } from './types';
 
@@ -8,6 +9,8 @@ type HitProps = {
 };
 
 export default function Hit({ hit }: HitProps) {
+  console.log('hit', hit);
+
   return (
     <div className="rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow">
       {isDocsHit(hit) && (
@@ -75,8 +78,10 @@ export default function Hit({ hit }: HitProps) {
                 key={index}
                 className="flex items-start gap-3 [&:not(:last-of-type)]:mb-2"
               >
-                <Image
+                {/* Uses a fallback image, if the avatar we indexed is no longer available. */}
+                <ImageWithFallback
                   src={message.author.avatar}
+                  fallbackSrc="/discordFallback.png"
                   alt={`Profile image for ${message.author.name}`}
                   width={48}
                   height={48}
