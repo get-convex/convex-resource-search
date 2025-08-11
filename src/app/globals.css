@@ -1,5 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Flex:wdth,wght@25..151,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Flex:wdth,wght@25..125,100..1000&display=swap')
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* Custom theme variables for Tailwind v4 */
+@theme {
+  --color-neutral-white: #ffffff;
+  --color-neutral-n1: #f6f6f6;
+  --color-neutral-n2: #f1f1f1;
+  --color-neutral-n3: #e5e5e5;
+  --color-neutral-n4: #d7d7d7;
+  --color-neutral-n5: #c2c2c2;
+  --color-neutral-n6: #adadad;
+  --color-neutral-n7: #939393;
+  --color-neutral-n8: #797979;
+  --color-neutral-n9: #6e6e6e;
+  --color-neutral-n10: #3f3f3f;
+  --color-neutral-n11: #292929;
+  --color-neutral-n12: #141414;
+  --color-neutral-n13: #111111;
+  --color-neutral-black: #000000;
+
+  --color-plum-p1: #f4e9f1;
+  --color-plum-p2: #e3d0df;
+  --color-plum-p3: #d7b3cf;
+  --color-plum-p4: #8d2676;
+  --color-plum-p5: #711e5e;
+  --color-plum-p6: #47133b;
+
+  --color-yellow-y1: #fdefd2;
+  --color-yellow-y2: #f8d077;
+  --color-yellow-y3: #f3b01c;
+  --color-yellow-y4: #e7a71b;
+
+  --color-red-r1: #fcd6d5;
+  --color-red-r2: #f15d59;
+  --color-red-r3: #ee342f;
+  --color-red-r4: #d62f2a;
+
+  --color-green-g1: #e5f3dc;
+  --color-green-g2: #72c043;
+  --color-green-g3: #4fb014;
+  --color-green-g4: #479e12;
+
+  --color-accent-a1: #07bfe8;
+  --color-accent-a2: #074ee8;
+  --color-accent-a3: #7651e0;
+  --color-accent-a4: #ee9f73;
+
+  --color-discord: #5865f2;
+
+  --font-family-display:
+    'Roboto Flex', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-body:
+    'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-mono: monospace;
+
+  --font-size-xs: 0.6875rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 2.375rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 2.625rem;
+  --font-size-5xl: 2.875rem;
+  --font-size-6xl: 3.125rem;
+  --font-size-7xl: 3.5rem;
+  --font-size-8xl: 3.75rem;
+}
+
+/* Custom utilities for font stretch (Roboto Flex variable font) */
+@layer utilities {
+  .stretch-min {
+    font-stretch: 25%;
+  }
+
+  .stretch-thin {
+    font-stretch: 75%;
+  }
+
+  .stretch-default {
+    font-stretch: 100%;
+  }
+
+  .stretch-wide {
+    font-stretch: 125%;
+  }
+}
