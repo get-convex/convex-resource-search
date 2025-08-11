@@ -34,7 +34,7 @@ export default function SearchBox({
       <input
         type="text"
         placeholder="Search across Docs, Stack, and Discord..."
-        className="w-full rounded p-2 outline-none md:text-lg"
+        className="w-full bg-white rounded-sm p-2 outline-hidden md:text-lg"
         value={value}
         onChange={onChange}
         ref={inputRef}

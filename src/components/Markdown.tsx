@@ -10,7 +10,7 @@ export default function Markdown({ text }: MarkdownProps) {
       components={{
         p: ({ children }) => <p className="mb-2 text-neutral-n5">{children}</p>,
         pre: ({ children }) => (
-          <div className="mb-4 max-h-72 w-full overflow-x-auto rounded bg-neutral-n12 p-2">
+          <div className="mb-4 max-h-72 w-full overflow-x-auto rounded-sm bg-neutral-n12 p-2">
             <pre className="text-neutral-n5">{children}</pre>
           </div>
         ),

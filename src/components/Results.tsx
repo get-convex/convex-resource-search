@@ -49,7 +49,7 @@ export default function Results() {
           <div key={name}>
             <a
               href={link}
-              className="hidden bg-neutral-n12 py-4 font-display text-xl font-bold leading-none text-neutral-n2 underline-offset-4 shadow-lg stretch-max hover:underline lg:block"
+              className="hidden bg-neutral-n12 py-4 font-display text-xl font-bold leading-none text-neutral-n2 underline-offset-4 shadow-lg stretch-wide hover:underline lg:block"
               target="_blank"
             >
               {title}

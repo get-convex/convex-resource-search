@@ -12,7 +12,7 @@ export default function Hit({ hit }: HitProps) {
   console.log('hit', hit);
 
   return (
-    <div className="rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow">
+    <div className="rounded-lg border border-neutral-n12 bg-neutral-n11 p-3 shadow-sm">
       {isDocsHit(hit) && (
         <div className="flex flex-col">
           <a
@@ -76,7 +76,7 @@ export default function Hit({ hit }: HitProps) {
             {hit.messages.slice(0, 3).map((message, index) => (
               <li
                 key={index}
-                className="flex items-start gap-3 [&:not(:last-of-type)]:mb-2"
+                className="flex items-start gap-3 not-last-of-type:mb-2"
               >
                 {/* Uses a fallback image, if the avatar we indexed is no longer available. */}
                 <ImageWithFallback
