@@ -31,7 +31,7 @@ export default function Hit({ hit }: HitProps) {
           <Highlight
             hit={hit}
             attribute="contents"
-            className="text-neutral-n5 line-clamp-2"
+            classNames={{ root: 'text-neutral-n5 line-clamp-2' }}
           />
         </div>
       )}
@@ -53,7 +53,7 @@ export default function Hit({ hit }: HitProps) {
           <Highlight
             hit={hit}
             attribute="content"
-            className="text-neutral-n5 line-clamp-2"
+            classNames={{ root: 'text-neutral-n5 line-clamp-2' }}
           />
         </div>
       )}
